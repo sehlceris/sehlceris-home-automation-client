@@ -13,6 +13,7 @@ cd $SERVICE_NAME
 cp config.example.json config.json
 chmod 600 config.json
 npm i
+npm run build
 ```
 
 At this point, edit your config.json to your needs.
@@ -23,7 +24,7 @@ Description=$SERVICE_NAME
 
 [Service]
 Restart=always
-ExecStart=npm --prefix $PWD start
+ExecStart=npm --prefix $PWD run start
 
 [Install]
 WantedBy=default.target
