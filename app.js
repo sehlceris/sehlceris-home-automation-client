@@ -5,9 +5,9 @@ const Client = require('socket.io-client');
 const config = JSON.parse(fs.readFileSync('./config.json', 'utf8'));
 const {messageSubscriptions, serverUri} = config;
 
-const ws = Client(serverUri);
+console.log(`initializing home automation client with WSS uri ${serverUri}`);
 
-console.log('initializing home automation client');
+const ws = Client(serverUri);
 
 ws.on('connect', () => {
   console.log('websocket connected');
