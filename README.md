@@ -13,7 +13,11 @@ cd $SERVICE_NAME
 cp config.example.json config.json
 chmod 600 config.json
 npm i
+```
 
+At this point, edit your config.json to your needs.
+
+```bash
 echo "[Unit]
 Description=$SERVICE_NAME
 
