@@ -10,7 +10,7 @@ mkdir -p ~/apps
 cd ~/apps
 git clone https://github.com/sehlceris/$SERVICE_NAME.git
 cd $SERVICE_NAME
-cp config.example.json config.json
+touch config.json
 chmod 600 config.json
 npm i
 npm run build
