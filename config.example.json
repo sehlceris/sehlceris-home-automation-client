@@ -1,0 +1,6 @@
+{
+  "serverUri": "ws://localhost:3000",
+  "messageSubscriptions": [
+    "SleepComputersRequest"
+  ]
+}
