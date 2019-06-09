@@ -22,12 +22,9 @@ Next, depending on your platform (Windows vs Linux), install the service:
 
 ## windows
 
-Go to task manager and create a task that starts up on boot:
-`C:\Program Files\nodejs\npm.cmd`
+Copy the `windows-startup` folder into `C:\apps`, editing the files as necessary depending on your folder structure.
 
-With the following parameters:
-
-`--prefix D:\Users\chris\projects\sehlceris-home-automation-client run start`
+Go to RUN > `shell:startup` and create a shortcut to `autostart.bat`
 
 ## linux
 

@@ -1,0 +1,1 @@
+"C:\Program Files\nodejs\npm.cmd" --prefix "D:\Users\chris\projects\sehlceris-home-automation-client" run start
