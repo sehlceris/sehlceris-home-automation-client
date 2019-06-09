@@ -16,7 +16,20 @@ npm i
 npm run build
 ```
 
-At this point, edit your config.json to your needs.
+Edit your config.json to your needs (you only need to set the WSS URL)
+
+Next, depending on your platform (Windows vs Linux), install the service:
+
+## windows
+
+Go to task manager and create a task that starts up on boot:
+`C:\Program Files\nodejs\npm.cmd`
+
+With the following parameters:
+
+`--prefix D:\Users\chris\projects\sehlceris-home-automation-client run start`
+
+## linux
 
 ```bash
 echo "[Unit]

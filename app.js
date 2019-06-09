@@ -23,7 +23,7 @@ ws.on('disconnect', () => {
 });
 
 if (messageSubscriptions.includes('SleepComputersRequest')) {
-    console.log('subscribing to SleepComputersRequest')
+    console.log('subscribing to SleepComputersRequest');
     ws.on('SleepComputersRequest', () => {
         console.log('SleepComputersRequest');
         const command = isWindows
