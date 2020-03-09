@@ -51,4 +51,6 @@ systemctl stop $SERVICE_NAME
 systemctl daemon-reload
 systemctl enable $SERVICE_NAME
 systemctl start $SERVICE_NAME
+sleep 5
+systemctl status $SERVICE_NAME
 ```

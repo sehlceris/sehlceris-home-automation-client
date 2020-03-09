@@ -2,11 +2,11 @@ const fs = require('fs');
 const {exec} = require('child_process');
 const asyncMqtt = require('async-mqtt');
 
-class RemoteControlMqttTopic {
-  static sleepComputerRequest = 'sleepComputerRequest';
-  static shutdownComputerRequest = 'shutdownComputerRequest';
-  static wakeComputerRequest = 'wakeComputerRequest';
-}
+const RemoteControlMqttTopic = Object.freeze({
+  sleepComputerRequest: 'sleepComputerRequest',
+  shutdownComputerRequest: 'shutdownComputerRequest',
+  wakeComputerRequest: 'wakeComputerRequest',
+});
 
 class HomeAutomationClient {
   constructor() {
