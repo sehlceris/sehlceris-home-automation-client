@@ -16,7 +16,7 @@ npm i
 npm run build
 ```
 
-Edit your config.json to your needs (you only need to set the WSS URL)
+Edit your config.json to your needs
 
 Next, depending on your platform (Windows vs Linux), install the service:
 
@@ -33,13 +33,14 @@ sudo su
 
 SERVICE_NAME=sehlceris-home-automation-client
 NPM_PATH="$(which npm)"
+APP_DIRECTORY=$PWD
 
 echo "[Unit]
 Description=$SERVICE_NAME
 
 [Service]
 Restart=always
-ExecStart=$NPM_PATH --prefix $PWD run start
+ExecStart=$NPM_PATH --prefix $APP_DIRECTORY run start
 
 [Install]
 WantedBy=default.target

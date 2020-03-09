@@ -1,6 +1,10 @@
 {
-  "serverUri": "ws://localhost:3000",
-  "messageSubscriptions": [
-    "SleepComputersRequest"
+  "mqttBrokerUri": "tcp://myserver.local:1883",
+  "mqttUsername": "user",
+  "mqttPassword": "qaIj9nWsmw8thXHdKpOmffvzfIae2grr4p67PU",
+  "topicSubscriptions": [
+    "sleepComputerRequest",
+    "shutdownComputerRequest",
+    "wakeComputerRequest"
   ]
 }

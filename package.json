@@ -1,6 +1,6 @@
 {
   "name": "sehlceris-home-automation-client",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "",
   "main": "app.js",
   "scripts": {
@@ -11,6 +11,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "socket.io-client": "^2.2.0"
+    "async-mqtt": "^2.5.0",
+    "mqtt": "^3.0.0"
   }
 }

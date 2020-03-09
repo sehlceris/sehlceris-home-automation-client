@@ -17,7 +17,9 @@ generated/
 src/generated/
 src/app/generated/
 
-# config
-config/
-config.json
+# config, secrets, and credentials
 .env
+!package.json
+!package-lock.json
+config*
+!config.example.json
