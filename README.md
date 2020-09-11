@@ -11,10 +11,9 @@ mkdir -p ~/apps
 cd ~/apps
 git clone https://github.com/sehlceris/$SERVICE_NAME.git
 cd $SERVICE_NAME
-touch config.json
+cp config.example.json config.json
 chmod 600 config.json
 npm i
-npm run build
 ```
 
 Edit your config.json to your needs
