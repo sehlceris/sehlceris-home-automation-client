@@ -29,8 +29,6 @@ Go to RUN > `shell:startup` and create a shortcut to `autostart.bat`
 ## linux
 
 ```bash
-sudo su
-
 SERVICE_NAME=sehlceris-home-automation-client
 NPM_PATH="$(which npm)"
 APP_DIRECTORY=$PWD
@@ -46,10 +44,10 @@ ExecStart=$NPM_PATH --prefix $APP_DIRECTORY run start
 WantedBy=default.target
 " | sudo tee /etc/systemd/system/$SERVICE_NAME.service  > /dev/null
 
-systemctl stop $SERVICE_NAME
-systemctl daemon-reload
-systemctl enable $SERVICE_NAME
-systemctl start $SERVICE_NAME
+sudo systemctl stop $SERVICE_NAME
+sudo systemctl daemon-reload
+sudo systemctl enable $SERVICE_NAME
+sudo systemctl start $SERVICE_NAME
 sleep 5
-systemctl status $SERVICE_NAME
+sudo systemctl status $SERVICE_NAME
 ```
