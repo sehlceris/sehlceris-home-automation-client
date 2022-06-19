@@ -95,7 +95,7 @@ class HomeAutomationClient {
   shutdownComputer(topic, message) {
     const command = this.isWindows
       ? 'shutdown /s /t 1'
-      : 'sudo systemctl shutdown';
+      : 'sudo systemctl poweroff';
     console.log(`exec: ${command}`);
     exec(command);
   }
