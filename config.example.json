@@ -7,5 +7,6 @@
     "shutdownComputerRequest",
     "wakeComputerRequest"
   ],
-  "customSleepCommand": "sudo systemctl hibernate"
+  "customSleepCommand": "sudo systemctl hibernate",
+  "customShutdownCommand": "sudo systemctl poweroff"
 }

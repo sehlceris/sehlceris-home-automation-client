@@ -5,7 +5,7 @@ Requires node.js 12+
 
 ## setup
 
-```bash
+```shell
 SERVICE_NAME=sehlceris-home-automation-client
 mkdir -p ~/apps
 cd ~/apps
@@ -28,7 +28,27 @@ Go to RUN > `shell:startup` and create a shortcut to `autostart.bat`
 
 ## linux
 
-```bash
+First, enable passwordless sudo for the necessary commands:
+
+```shell
+visudo
+```
+
+```
+## admins can shutdown/suspend/reboot without password
+%sudo   ALL=(ALL) NOPASSWD:/sbin/shutdown
+%sudo   ALL=(ALL) NOPASSWD:/sbin/shutdown -i
+%sudo   ALL=(ALL) NOPASSWD:/bin/systemctl poweroff
+%sudo   ALL=(ALL) NOPASSWD:/bin/systemctl reboot
+%sudo   ALL=(ALL) NOPASSWD:/bin/systemctl suspend
+%sudo   ALL=(ALL) NOPASSWD:/bin/systemctl suspend -i --no-wall
+%sudo   ALL=(ALL) NOPASSWD:/bin/systemctl hibernate
+%sudo   ALL=(ALL) NOPASSWD:/bin/systemctl hibernate -i --no-wall
+```
+
+Secondly, you can install a service that runs on boot.
+
+```shell
 SERVICE_NAME=sehlceris-home-automation-client
 NPM_PATH="$(which npm)"
 APP_DIRECTORY=$PWD
