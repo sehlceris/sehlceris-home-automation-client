@@ -6,5 +6,6 @@
     "sleepComputerRequest",
     "shutdownComputerRequest",
     "wakeComputerRequest"
-  ]
+  ],
+  "customSleepCommand": "sudo systemctl hibernate"
 }

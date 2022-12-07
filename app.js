@@ -1,5 +1,5 @@
 const fs = require('fs');
-const {exec} = require('child_process');
+const { exec } = require('child_process');
 const asyncMqtt = require('async-mqtt');
 
 const RemoteControlMqttTopic = Object.freeze({
@@ -11,6 +11,20 @@ const RemoteControlMqttTopic = Object.freeze({
 class HomeAutomationClient {
   constructor() {
     this.parseConfig();
+  }
+
+  static getSleepCommand(config) {
+    return config.customSleepCommand ||
+      process.platform === 'win32' ?
+      'rundll32.exe powrprof.dll,SetSuspendState 0,1,0'
+      : 'sudo systemctl suspend';
+  }
+
+  static getShutdownCommand(config) {
+    return config.customShutdownCommand ||
+      process.platform === 'win32' ?
+      'shutdown /s /t 1'
+      : 'sudo systemctl poweroff';
   }
 
   async start() {
@@ -25,10 +39,13 @@ class HomeAutomationClient {
 
   parseConfig() {
     const config = JSON.parse(fs.readFileSync('./config.json', 'utf8'));
+    this.config = config;
     this.topicSubscriptions = config.topicSubscriptions;
     this.mqttBrokerUri = config.mqttBrokerUri;
     this.mqttUsername = config.mqttUsername;
     this.mqttPassword = config.mqttPassword;
+    this.sleepCommand = HomeAutomationClient.getSleepCommand(config);
+    this.shutdownCommand = HomeAutomationClient.getShutdownCommand(config);
     this.isWindows = process.platform === 'win32';
   }
 
@@ -85,17 +102,13 @@ class HomeAutomationClient {
   }
 
   sleepComputer(topic, message) {
-    const command = this.isWindows
-      ? 'rundll32.exe powrprof.dll,SetSuspendState 0,1,0'
-      : 'sudo systemctl suspend';
+    const command = this.sleepCommand;
     console.log(`exec: ${command}`);
     exec(command);
   }
 
   shutdownComputer(topic, message) {
-    const command = this.isWindows
-      ? 'shutdown /s /t 1'
-      : 'sudo systemctl poweroff';
+    const command = this.shutdownCommand;
     console.log(`exec: ${command}`);
     exec(command);
   }
